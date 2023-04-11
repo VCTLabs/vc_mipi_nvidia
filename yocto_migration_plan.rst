@@ -12,6 +12,12 @@ Initial effort
 * make new recipe for user-space application
 * document yocto workflow for kernel/user-app
 
+.. note:: Turns out l4t-graphics-demos_32.5.1 is broken on the dunfell-l4t-r32.5.0
+  branch, however, kirkstone-l4t-r32.7.x branch builds fine (and probably latest
+  dunfell 32.6 as well).  Since camera driver is supported on 32.5 - 32.7 we will
+  bump straight to the latest LTS branch => kirkstone-l4t-r32.7.x
+
+
 week 1
 ------
 
