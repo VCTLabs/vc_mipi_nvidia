@@ -52,7 +52,12 @@
 
 # Quickstart
 
-1. Enter recovery mode by following the [Quick Start Guide](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/quick_start.html) instructions.   
+1. Enter recovery mode by following the [Quick Start Guide](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/quick_start.html)
+   instructions.   Note you can enter recovery mode on a system running Ubuntu/Jetpack with the
+   following command:
+   ```
+     $ sudo reboot --force forced-recovery
+   ```
 
 2. Create a directory and clone the repository.
    ```
