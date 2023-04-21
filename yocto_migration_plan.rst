@@ -22,7 +22,7 @@ week 1
 ------
 
 * fork and update any necessary upstream repos
-* flashable (test) yocto image with vc_mipi driver and application support
+* create flashable (test) yocto image with vc_mipi driver and application support
 
 week 2
 ------
@@ -55,9 +55,20 @@ New jetpack/yocto baseline
   *requires* either migrating or dropping TX2-class machine support
 
 
+
+Forked repos
+------------
+
+* VC camera driver - https://github.com/VCTLabs/vc_mipi_nvidia
+* antmicro build manifest - https://github.com/VCTLabs/meta-antmicro
+
+.. note:: The antmicro AI demo is *huge* and takes 5 times more time and space than
+          meta-tegra-distro build.
+
 Reference links
 ===============
 
 https://github.com/OE4T/tegra-demo-distro/tree/dunfell-l4t-r32.5.0
-https://github.com/OE4T/linux-tegra-4.9/tree/oe4t-patches-l4t-r32.5)
+https://github.com/OE4T/linux-tegra-4.9/tree/oe4t-patches-l4t-r32.5
 https://docs.yoctoproject.org/3.1.20/dev-manual/dev-manual-common-tasks.html
+

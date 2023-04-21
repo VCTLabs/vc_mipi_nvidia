@@ -229,6 +229,7 @@ If you want to change some settings of a camera in the device tree, please follo
    | NVIDIA Jetson Xavier NX | Auvidea JNX30-LC-PD | src/devicetree/Auvidea_JNX30_XavierNX/tegra194-camera-vc-mipi-cam.dtsi |
    | NVIDIA Jetson AGX Xavier | Auvidea J20 on DevKit | src/devicetree/Auvidea_J20_AGXXavier/tegra194-camera-vc-mipi-cam.dtsi |
    | NVIDIA Jetson TX2 | Auvidea J20 on DevKit | src/devicetree/Auvidea_J20_TX2/tegra186-camera-vc-mipi-cam.dtsi |
+   | NVIDIA Jetson TX2NX | Capable Robots Baseboard TX2NX | src/devicetree/CapableRobotsBaseboard_TX2NX/tegra186-camera-vc-mipi-cam.dtsi |
    
    To edit the correct device tree file you can simply use the setup script. It will open the correct device tree file in the nano editor.
    ```
@@ -297,6 +298,8 @@ If you have your own BSP, you have to integrate the driver into it. Please follo
    |                          |               | 32.6.1          | dt_camera_AGXXavier_32.3.1+ <br> kernel_Xavier_32.6.1+  |
    | NVIDIA Jetson TX2        | DevKit + J20  | 32.5.0 - 32.5.2 | dt_camera_TX2_32.5.0+ <br> kernel_TX_32.5.0+  |
    |                          |               | 32.6.1          | dt_camera_TX2_32.5.0+ <br> kernel_TX_32.6.1+  |
+   | NVIDIA Jetson TX2NX      | CR BaseBoard  | 32.5.0 - 32.5.2 | dt_camera_TX2_32.5.0+ <br> kernel_TX_32.5.0+  |
+   |                          |               | 32.6.1          | dt_camera_TX2_32.5.0+ <br> kernel_TX_32.6.1+  |
 
 2. Copy the camera device tree to the folder listed in the following table
 
@@ -308,6 +311,7 @@ If you have your own BSP, you have to integrate the driver into it. Please follo
    |                          | Auvidea JNX30 | Auvidea_JNX30_XavierNX/tegra194-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t19x/jakku/kernel-dts/common |
    | NVIDIA Jetson AGX Xavier | DevKit + J20  | Auvidea_J20_AGXXavier/tegra194-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t19x/common/kernel-dts/t19x-common-modules |
    | NVIDIA Jetson TX2        | DevKit + J20  | Auvidea_J20_TX2/tegra186-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-modules |
+   | NVIDIA Jetson TX2NX      | CR BaseBoard  | CapableRobotsBaseboard_TX2NX/tegra186-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-modules |
 
 3. Copy all driver files from folder **src/driver** to **/kernel/nvidia/drivers/media/i2c**
 
