@@ -241,7 +241,7 @@ If you want to change some settings of a camera in the device tree, please follo
      $ ./setup.sh --camera
    ```
 
-2. Enter recovery mode by following the [Quick Start Guide](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/quick_start.html) instructions.   
+2. Enter recovery mode by following the [Quick Start Guide](https://docs.nvidia.com/jetson/l4t/index.html#page/Tegra%20Linux%20Driver%20Package%20Development%20Guide/quick_start.html) instructions.
 
 3. Build and flash the device tree files to the target.
    ```
@@ -318,7 +318,12 @@ If you have your own BSP, you have to integrate the driver into it. Please follo
    | NVIDIA Jetson TX2        | DevKit + J20  | Auvidea_J20_TX2/tegra186-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-modules |
    | NVIDIA Jetson TX2NX      | CR BaseBoard  | CapableRobotsBaseboard_TX2NX/tegra186-camera-vc-mipi-cam.dtsi <br> => /hardware/nvidia/platform/t18x/common/kernel-dts/t18x-common-modules |
 
+2.1 Fix the include in the parent device tree source file: tegra186-p3636-0001-p3509-0000-a01.dts
+   by changing the local include to `#include <t18x-common-modules/tegra186-camera-vc-mipi-cam.dtsi>`
+
 3. Copy all driver files from folder **src/driver** to **/kernel/nvidia/drivers/media/i2c**
+
+NOTE: If using r32.7.x then copy the `tegra-v4l2-camera.h` header file to **/kernel/nvidia/include/media/** instead of the above path.
 
 # Testing the camera
 To test the camera you can use [Vision Components MIPI CSI-2 demo software](https://github.com/pmliquify/vc_mipi_demo)

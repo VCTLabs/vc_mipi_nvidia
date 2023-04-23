@@ -4,12 +4,17 @@ Yocto migration plan
 Initial effort
 --------------
 
-* start with current Jetpack version => 32.5.0
-* start with corresponding meta-tegra branch => dunfell-l4t-r32.5.0
-  (which really seems to be 32.5.2)
-* rebase vc-mipi camera patches on corresponding linux-tegra-4.9 jetpack branch
-* add rebased patches to yocto kernel recipe
-* make new recipe for user-space application
+* start with latest Jetpack version suppported by driver => 32.7.x
+
+  + 32.7 is marked experimental; roll back to 32.6.1 if necessary
+
+* start with corresponding meta-tegra branch => oe4t-patches-l4t-r32.7.3
+
+  + this is linux-tegra-4.9  (not 5.10)
+
+* rebase vc-mipi camera patches as needed on corresponding linux-tegra-4.9 jetpack branch
+* add rebased patches to yocto kernel recipe (meta-sb3d), make new recipe for user-space app
+  (potentially json-server or other deps)
 * document yocto workflow for kernel/user-app
 
 .. note:: Turns out l4t-graphics-demos_32.5.1 pkg is broken on the dunfell-l4t-r32.5.0
@@ -18,35 +23,32 @@ Initial effort
   bump straight to the latest LTS branch => kirkstone-l4t-r32.7.x
 
 
-week 1
-------
+tasks
+-----
 
 * fork and update any necessary upstream repos
 * create flashable (test) yocto image with vc_mipi driver and application support
-
-week 2
-------
-
 * document yocto build/deploy workflows
-* make sure dev workflow/build is clean and repeatable
+
 
 stretch goals
 -------------
 
+* customize partitioning scheme
 * do the proper meta-tegra dev things
 
   + create yocto layer and define custom machine bits for production HW
   + define project/product distro for release versioning
 
 
-New jetpack/yocto baseline
---------------------------
+jetpack/yocto baseline
+----------------------
 
 * forward-port vc_mipi_camera patches to latest LTS branch with TX2 support
 
   + latest dunfell LTS => dunfell-l4t-r32.6.1 (should work, but getting old)
   + latest kirkstone LTS => kirkstone-l4t-r32.7.x (pkgs good, newer kernel rev)
-  + verify camera/user-app on  LTS branch
+  + verify camera/user-app on LTS branch
 
 * the above branches should be reasonably clean on current antmicro/capable_robot hardware
 * kirkstone-l4t-r32.7.x is preferred, unless we find a requirement for rolling back to
@@ -55,15 +57,11 @@ New jetpack/yocto baseline
   *requires* either migrating or dropping TX2-class machine support
 
 
-
 Forked repos
 ------------
 
 * VC camera driver - https://github.com/VCTLabs/vc_mipi_nvidia
-* antmicro build manifest - https://github.com/VCTLabs/meta-antmicro
 
-.. note:: The antmicro AI demo is *huge* and takes 5 times more time and space than
-          meta-tegra-distro build.
 
 Reference links
 ===============
